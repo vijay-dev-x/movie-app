@@ -45,7 +45,7 @@ export default function Explore() {
       <h1 className=" text-3xl font-bold mb-8">
         Explore your {catagory === "tv" ? "TV shows" : "Movies"}{" "}
       </h1>
-      <div className=" grid grid-cols-[repeat(auto-fit,230px)] gap-5">
+      <div className=" grid grid-cols-[repeat(auto-fit,150px)] md:grid-cols-[repeat(auto-fit,230px)] gap-5">
         {exploreData?.map((value, index) => (
           <Card
             key={index}
@@ -56,7 +56,7 @@ export default function Explore() {
           ></Card>
         ))}
       </div>
-      <div className=" flex justify-center gap-5 my-2 w-[100%] p-3 ">
+      <div className=" flex justify-center gap-5 my-2 mb-16 md:mb-2 w-[100%] p-3 ">
         <button onClick={priviousHandler}>Previous</button>
         <p>{pageno}</p>
         <button onClick={nextHandler}>Next</button>

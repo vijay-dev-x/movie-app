@@ -3,7 +3,7 @@ import { mobileNavigationData } from "../constant/navdata";
 
 export default function MobileNavigation() {
   return (
-    <div className=" bg-zinc-800 mt-10 w-[100%] p-2 ">
+    <div className=" z-20 fixed overflow-hidden bottom-0 bg-zinc-800 mt-10 w-[100%] p-2 ">
       <div className=" flex justify-between">
         {mobileNavigationData.map((value, index) => (
           <NavLink

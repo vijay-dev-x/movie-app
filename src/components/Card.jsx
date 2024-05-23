@@ -16,11 +16,11 @@ export default function Card({ value, index, type, tranding }) {
     <div>
       <div
         onClick={() => movieIdHandler(value)}
-        className=" z-30 hover:scale-105 overflow-hidden relative cursor-pointer transition-all h-full w-full"
+        className="hover:scale-105 overflow-hidden relative cursor-pointer transition-all h-full w-full"
       >
         {value.poster_path ? (
           <img
-            className=" min-w-[200px] max-w-full h-full"
+            className=" min-w-[200px] object-cover max-w-full h-full"
             src={baseUrl + value.poster_path}
             alt="banner"
           />
@@ -35,7 +35,7 @@ export default function Card({ value, index, type, tranding }) {
           </div>
         )}
         <div className="p-2 absolute bottom-0 h-16 w-full backdrop-blur-sm bg-black/60 overflow-hidden left-0">
-          <h2 className="text-lg font-bold whitespace-nowrap">
+          <h2 className="text-lg text-ellipsis font-bold">
             {value.original_title || value.original_name}
           </h2>
           <div className="flex justify-between">

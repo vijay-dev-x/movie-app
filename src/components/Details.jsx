@@ -70,10 +70,10 @@ export default function Details() {
           />
           <div className=" absolute top-0 bg-gradient-to-t from-neutral-900 to-transparent h-full w-full"></div>
         </div>
-        <div className=" flex gap-10 items-center relative -mt-36 p-5 w-full h-full">
+        <div className=" flex-col md:flex-row flex gap-10 items-center relative -mt-36 p-5 w-full h-full">
           <div className=" w-full min-w-[200px] max-w-[280px] ">
             <img
-              className="w-[100%] rounded-md "
+              className=" w-[80%] mx-auto md:w-[100%] rounded-md "
               src={baseUrl + details?.poster_path}
               alt="poster img"
             />
@@ -123,7 +123,7 @@ export default function Details() {
         </div>
         <div className=" p-5">
           <h1 className=" text-3xl font-bold my-1 text-center">Star cast</h1>
-          <div className=" grid grid-cols-[repeat(auto-fit,128px)] gap-5  justify-center p-3">
+          <div className=" grid grid-cols-[repeat(auto-fit,90px)] md:grid-cols-[repeat(auto-fit,128px)] gap-5  justify-center p-3">
             {castDetails?.cast
               ?.filter((avl) => avl.profile_path)
               .map((value, index) => (
@@ -131,11 +131,13 @@ export default function Details() {
                   className=" flex flex-col gap-2 justify-center "
                   key={index}
                 >
-                  <img
-                    className=" w-32 h-32 rounded-full object-cover"
-                    src={baseUrl + value.profile_path}
-                    alt="logo"
-                  />
+                  <div className=" md:size-32 size-20">
+                    <img
+                      className=" w-full h-full rounded-full object-cover"
+                      src={baseUrl + value.profile_path}
+                      alt="logo"
+                    />
+                  </div>
                   <p className="   text-center">{value.name}</p>
                 </div>
               ))}

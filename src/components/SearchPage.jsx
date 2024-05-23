@@ -34,20 +34,20 @@ export default function SearchPage() {
   return (
     <div>
       <div className=" container p-5 mx-auto overflow-hidden">
-        <div className=" z-20 md:hidden fixed top-30 left-0 px-2 w-full flex justify-center border">
+        <div className=" z-20 md:hidden fixed top-30 left-0 px-2 w-full flex justify-center">
           <input
-            className=" z-60 mx-auto w-[100%] bg-white/90 text-black rounded-full outline-none py-2 px-3 "
+            className=" z-60 bg-neutral-700 mx-auto w-[100%] bg-white/90 text-black rounded-full outline-none py-2 px-3 "
             onChange={(e) => navigate(`/search?q=${e.target.value}`)}
             placeholder="Search here.."
             type="text"
           />
         </div>
-        <h2 className=" text-3xl my-5 font-bold">
+        <h2 className=" text-3xl my-6 mt-16 md:mt-0  font-bold">
           {data.length > 0
             ? "Your search results"
-            : "Not found from your search"}{" "}
+            : "Not found from your search"}
         </h2>
-        <div className="-z-20 grid grid-cols-[repeat(auto-fit,230px)] gap-5">
+        <div className="-z-20  grid-cols-[repeat(auto-fit,150px)] grid md:grid-cols-[repeat(auto-fit,230px)]  gap-5">
           {data?.map((value, index) => (
             <Card key={index} type={"movie"} index={index} value={value}></Card>
           ))}

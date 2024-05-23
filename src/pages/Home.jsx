@@ -10,6 +10,7 @@ export default function Home() {
   const [popularData, setpopularData] = useState([]);
   const [topRatedData, setTopRaedtedData] = useState([]);
   const [upcomingData, setUpcomingData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchSeriesData = async () => {
     const res = await axios.get("/tv/popular");
@@ -29,44 +30,56 @@ export default function Home() {
     setUpcomingData(res.data.results);
   };
   useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
     fetchSeriesData();
     fetchTopRated();
     fetchPopularData();
     fetchUpcoming();
+    return () => clearInterval(timeout);
   }, []);
   return (
     <div className="">
-      <HomeBanner></HomeBanner>
-      <MovieCard
-        catagory={"Trending"}
-        type={"movie"}
-        tranding={true}
-        movieData={bannerData}
-      ></MovieCard>
-      <MovieCard
-        catagory={"TV shows"}
-        type={"tv"}
-        tranding={false}
-        movieData={seriesData}
-      ></MovieCard>
-      <MovieCard
-        catagory={"Top rated"}
-        type={"movie"}
-        tranding={false}
-        movieData={topRatedData}
-      ></MovieCard>
-      <MovieCard
-        catagory={"Popular"}
-        type={"movie"}
-        tranding={false}
-        movieData={popularData}
-      ></MovieCard>
-      <MovieCard
-        catagory={"Upcoming"}
-        type={"movie"}
-        tranding={false}
-        movieData={upcomingData}
-      ></MovieCard>
+      {!loading ? (
+        <div className=" overflow-hidden">
+          <HomeBanner></HomeBanner>
+          <MovieCard
+            catagory={"Trending"}
+            type={"movie"}
+            tranding={true}
+            movieData={bannerData}
+          ></MovieCard>
+          <MovieCard
+            catagory={"TV shows"}
+            type={"tv"}
+            tranding={false}
+            movieData={seriesData}
+          ></MovieCard>
+          <MovieCard
+            catagory={"Top rated"}
+            type={"movie"}
+            tranding={false}
+            movieData={topRatedData}
+          ></MovieCard>
+          <MovieCard
+            catagory={"Popular"}
+            type={"movie"}
+            tranding={false}
+            movieData={popularData}
+          ></MovieCard>
+          <MovieCard
+            catagory={"Upcoming"}
+            type={"movie"}
+            tranding={false}
+            movieData={upcomingData}
+          ></MovieCard>
+        </div>
+      ) : (
+        <div className=" h-[80vh] w-full flex justify-center items-center ">
+          <img src="/spinner.svg" alt="" />
+        </div>
+      )}
     </div>
   );
 }

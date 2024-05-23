@@ -32,16 +32,16 @@ export default function MovieCard({ movieData, catagory, type, tranding }) {
           ))}
         </div>
       </div>
-      <div className="flex h-full items-center justify-between w-full absolute top-0 px-8">
+      <div className=" hidden md:flex -z-20 h-full items-center justify-between w-full absolute top-0 px-8">
         <button
           onClick={leftSideHandler}
-          className="p-2 z-40    backdrop-blur-sm bg-black/30 text-white rounded-full"
+          className="p-2 z-20    backdrop-blur-sm bg-black/30 text-white rounded-full"
         >
           <ArrowLeft />
         </button>
         <button
           onClick={rightSideHandler}
-          className="p-2 z-40 mr-5 backdrop-blur-sm bg-black/30 text-white rounded-full"
+          className="p-2 z-20 mr-5 backdrop-blur-sm bg-black/30 text-white rounded-full"
         >
           <ArrowRight />
         </button>

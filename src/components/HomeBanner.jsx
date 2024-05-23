@@ -34,12 +34,12 @@ export default function HomeBanner() {
   //   }, [bannerData, baseUrl]);
 
   return (
-    <div className=" h-full w-full">
+    <div className="h-full w-full">
       <div className="flex overflow-hidden">
         {bannerData?.map((value, index) => (
           <div
             key={index}
-            className=" min-h-full min-w-full relative transition-all"
+            className="h-[85vh] md:min-h-full min-w-full relative transition-all"
             style={{ transform: `translateX(-${currentImg * 100}%)` }}
           >
             <div className=" h-[90vh] w-full overflow-hidden ">
@@ -49,7 +49,7 @@ export default function HomeBanner() {
                 alt="banner"
               />
             </div>
-            <div className=" absolute h-full w-full top-0 flex items-center justify-between px-5">
+            <div className=" absolute  h-full w-full top-0 flex items-center justify-between px-5">
               <button
                 onClick={handlePrevious}
                 className=" hover:text-white text-white/60 text-[4em] z-40 "
@@ -64,16 +64,20 @@ export default function HomeBanner() {
               </button>
             </div>
             <div className="  absolute top-0 bg-gradient-to-t from-neutral-900 to-transparent h-full w-full "></div>
-            <div className=" absolute w-[60%] p-5 bottom-10">
-              <h2 className=" text-4xl  font-bold my-2">{value.title}</h2>
-              <p className=" text-ellipsis  line-clamp-3">{value.overview}</p>
+            <div className=" absolute w-full md:w-[60%] p-5 bottom-10">
+              <h2 className=" text-2xl md:text-4xl  font-bold my-2">
+                {value.title}
+              </h2>
+              <p className=" text-sm md:text-sm text-ellipsis  line-clamp-3">
+                {value.overview}
+              </p>
               <div className=" cursor-pointer z-50 flex gap-2 my-2">
                 <p>Rating: {Number(value.vote_average).toFixed(1)}+</p>
                 <span>|</span>
                 <p>Views: {Number(value.vote_count).toFixed(0)}+</p>
               </div>
               <Link to={`/${value.media_type}/${value.id}`}>
-                <button className=" z-60 cursor-pointer hover:bg-gradient-to-tr from-red-600 to-orange-400 transition-all hover:text-white bg-white text-black font-semibold text-lg rounded-md py-2 px-5 mt-2">
+                <button className=" z-60 cursor-pointer hover:bg-gradient-to-tr from-red-600 to-orange-400 transition-all hover:text-white bg-white text-black font-semibold text-lg rounded-md py-2 px-5 mt-1">
                   Play now
                 </button>
               </Link>
