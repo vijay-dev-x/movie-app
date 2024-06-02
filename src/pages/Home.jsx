@@ -3,6 +3,7 @@ import HomeBanner from "../components/HomeBanner";
 import MovieCard from "../components/MovieCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Loader, Loader2Icon } from "lucide-react";
 
 export default function Home() {
   const bannerData = useSelector((store) => store.app.bannerData);
@@ -77,7 +78,7 @@ export default function Home() {
         </div>
       ) : (
         <div className=" h-[80vh] w-full flex justify-center items-center ">
-          <img src="/spinner.svg" alt="" />
+          <Loader size={40} className="  animate-spin"></Loader>
         </div>
       )}
     </div>

@@ -44,7 +44,7 @@ export default function HomeBanner() {
           >
             <div className=" h-[90vh] w-full overflow-hidden ">
               <img
-                className=" h-full object-cover w-full"
+                className=" h-full object-cover object-top w-full"
                 src={baseUrl + value.backdrop_path}
                 alt="banner"
               />
