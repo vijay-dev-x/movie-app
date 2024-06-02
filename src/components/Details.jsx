@@ -19,29 +19,48 @@ export default function Details() {
 
   //   fetch api
   const fetchDetails = async () => {
-    const res = await axios.get(`/${catagory}/${id}`);
-    setDetails(res.data);
-    // console.log("movie/tv details", res.data);
+    try {
+      const res = await axios.get(`/${catagory}/${id}`);
+      setDetails(res.data);
+      // console.log("movie/tv details", res.data);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
   const fetchCastDetails = async () => {
-    const res = await axios.get(`/${catagory}/${id}/credits`);
-    setCastDetails(res.data);
-    // console.log("cast details", res.data);
+    try {
+      const res = await axios.get(`/${catagory}/${id}/credits`);
+      setCastDetails(res.data);
+      // console.log("cast details", res.data);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
   const fetchSimilarDetails = async () => {
-    const res = await axios.get(`/${catagory}/${id}/similar`);
-    setSimilarDetails(res.data.results);
-    // console.log("similar details", res.data);
+    try {
+      const res = await axios.get(`/${catagory}/${id}/similar`);
+      setSimilarDetails(res.data.results);
+      // console.log("similar details", res.data);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
   const fetchRecommandaitionDetails = async () => {
-    const res = await axios.get(`/${catagory}/${id}/similar`);
-    setRecommandaitionDetails(res.data.results);
-    // console.log("recommandation details", res.data);
+    try {
+      const res = await axios.get(`/${catagory}/${id}/similar`);
+      setRecommandaitionDetails(res.data.results);
+      // console.log("recommandation details", res.data);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
   const fetchTrailerData = async () => {
-    const res = await axios.get(`/${catagory}/${id}/videos`);
-    setTrailerData(res.data.results[0]);
-    // console.log("trailer details", res.data.results[0]);
+    try {
+      const res = await axios.get(`/${catagory}/${id}/videos`);
+      setTrailerData(res.data.results[0]);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
   //   functions--
   const convertRuntime = (minutes) => {

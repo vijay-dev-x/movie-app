@@ -23,7 +23,7 @@ export default function SearchPage() {
       setData(res.data.results);
       setGotResult(res.data.results.length > 0 ? true : false);
     } catch (error) {
-      console.log(error);
+      console.log("error", error);
       setGotResult(false);
     }
   };

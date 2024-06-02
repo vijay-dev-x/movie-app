@@ -14,26 +14,42 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   const fetchSeriesData = async () => {
-    const res = await axios.get("/tv/popular");
-    console.log("tv shows", res.data);
-    setSeriesData(res.data.results);
+    try {
+      const res = await axios.get("/tv/popular");
+      console.log("tv shows", res.data);
+      setSeriesData(res.data.results);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
   const fetchPopularData = async () => {
-    const res = await axios.get("/movie/popular");
-    setpopularData(res.data.results);
+    try {
+      const res = await axios.get("/movie/popular");
+      setpopularData(res.data.results);
+    } catch (error) {
+      console.log("err", error);
+    }
   };
   const fetchTopRated = async () => {
-    const res = await axios.get("/movie/top_rated");
-    setTopRaedtedData(res.data.results);
+    try {
+      const res = await axios.get("/movie/top_rated");
+      setTopRaedtedData(res.data.results);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
   const fetchUpcoming = async () => {
-    const res = await axios.get("/movie/upcoming");
-    setUpcomingData(res.data.results);
+    try {
+      const res = await axios.get("/movie/upcoming");
+      setUpcomingData(res.data.results);
+    } catch (error) {
+      console.log("error", error);
+    }
   };
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 3000);
     fetchSeriesData();
     fetchTopRated();
     fetchPopularData();

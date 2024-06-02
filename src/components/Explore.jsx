@@ -23,7 +23,7 @@ export default function Explore() {
       setExploreData(res.data.results);
       console.log("fetching from explore", res.data);
     } catch (error) {
-      console.log(error);
+      console.log("error", error);
     }
   };
   const priviousHandler = () => {
